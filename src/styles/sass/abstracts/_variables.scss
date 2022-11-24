@@ -1,0 +1,16 @@
+// colors
+$white: rgb(255, 255, 255);
+$white90: rgba($white, 0.9);
+$zinc: rgba(113, 113, 122, 1);
+$contrast: rgb(32, 33, 36);
+$error: rgba(239, 68, 68);
+$grey300: rgba(209, 213, 219, 1);
+// assumes mobile first design
+$breakpoints: (
+  xs: 400px,
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1536px,
+);

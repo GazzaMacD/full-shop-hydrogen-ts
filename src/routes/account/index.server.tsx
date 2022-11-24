@@ -25,7 +25,7 @@ import {
 } from '~/components';
 import {Layout, ProductSwimlane} from '~/components/index.server';
 import type {
-  Collection,
+  Collection as TCollection,
   CollectionConnection,
   Customer,
   MailingAddress,

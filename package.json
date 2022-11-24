@@ -44,6 +44,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-use": "^17.4.0",
+    "sass": "^1.56.1",
     "typographic-base": "^1.0.4"
   },
   "author": "gazzamacd42"

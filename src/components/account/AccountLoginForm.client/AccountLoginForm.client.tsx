@@ -1,6 +1,8 @@
 import {useState} from 'react';
 import {useNavigate, Link} from '@shopify/hydrogen/client';
-import {getInputStyleClasses} from '../../lib/styleUtils';
+import {getInputStyleClasses} from '~/lib/styleUtils';
+import formstyles from '../AccountForms.module.scss';
+import styles from './AccLogin.module.scss';
 
 interface FormElements {
   email: HTMLInputElement;
@@ -73,13 +75,13 @@ export function AccountLoginForm({shopName}: {shopName: string}) {
   }
 
   return (
-    <div className="flex justify-center my-24 px-4">
-      <div className="max-w-md w-full">
-        <h1 className="text-4xl">Sign in.</h1>
-        <form noValidate className="pt-6 pb-8 mt-4 mb-4" onSubmit={onSubmit}>
+    <div className={formstyles.AFWrapper}>
+      <div className={formstyles.AFCard}>
+        <h1 className={formstyles.AFCard__heading}>Sign in</h1>
+        <form noValidate className={formstyles.AF} onSubmit={onSubmit}>
           {hasSubmitError && (
-            <div className="flex items-center justify-center mb-6 bg-zinc-500">
-              <p className="m-4 text-s text-contrast">
+            <div className={formstyles.AFSubmitErr}>
+              <p>
                 Sorry we did not recognize either your email or password. Please
                 try to sign in again or create a new account.
               </p>
@@ -150,9 +152,11 @@ function EmailField({
 }) {
   return (
     <>
-      <div className="mb-3">
+      <div className={formstyles.Field}>
         <input
-          className={`mb-1 ${getInputStyleClasses(emailError)}`}
+          className={`${formstyles.Input} ${
+            emailError ? formstyles.Input__err : ''
+          }`}
           id="email"
           name="email"
           type="email"
@@ -170,23 +174,18 @@ function EmailField({
         {!emailError ? (
           ''
         ) : (
-          <p className={`text-red-500 text-xs`}>{emailError} &nbsp;</p>
+          <p className={formstyles.Field__err}>{emailError} &nbsp;</p>
         )}
       </div>
-      <div className="flex items-center justify-between">
-        <button
-          className="bg-primary rounded text-contrast py-2 px-4 focus:shadow-outline block w-full"
-          type="submit"
-        >
+      <div className={formstyles.SubmitBox}>
+        <button className={formstyles.SubmitBtn} type="submit">
           Next
         </button>
       </div>
-      <div className="flex items-center mt-8 border-t  border-gray-300">
-        <p className="align-baseline text-sm mt-6">
+      <div className={formstyles.AddInfo}>
+        <p>
           New to {shopName}? &nbsp;
-          <Link className="inline underline" to="/account/register">
-            Create an account
-          </Link>
+          <Link to="/account/register">Create an account</Link>
         </p>
       </div>
     </>
@@ -236,9 +235,11 @@ function PasswordField({
 }) {
   return (
     <>
-      <div className="mb-3">
+      <div className={formstyles.Field}>
         <input
-          className={`mb-1 ${getInputStyleClasses(passwordError)}`}
+          className={`${formstyles.Input} ${
+            passwordError ? formstyles.Input__err : ''
+          }`}
           id="password"
           name="password"
           type="password"
