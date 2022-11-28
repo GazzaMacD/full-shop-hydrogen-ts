@@ -200,11 +200,10 @@ function ValidEmail({
   resetForm: () => void;
 }) {
   return (
-    <div className="mb-3 flex items-center justify-between">
+    <div className={formstyles.ReadOnlyField}>
       <div>
         <p>{email}</p>
         <input
-          className="hidden"
           type="text"
           autoComplete="username"
           value={email}
@@ -212,11 +211,7 @@ function ValidEmail({
         ></input>
       </div>
       <div>
-        <button
-          className="inline-block align-baseline text-sm underline"
-          type="button"
-          onClick={resetForm}
-        >
+        <button type="button" onClick={resetForm}>
           Change email
         </button>
       </div>
@@ -258,25 +253,18 @@ function PasswordField({
         {!passwordError ? (
           ''
         ) : (
-          <p className={`text-red-500 text-xs`}> {passwordError} &nbsp;</p>
+          <p className={formstyles.Field__err}> {passwordError} &nbsp;</p>
         )}
       </div>
-      <div className="flex items-center justify-between">
-        <button
-          className="bg-primary text-contrast rounded py-2 px-4 focus:shadow-outline block w-full"
-          type="submit"
-        >
+      <div className={formstyles.SubmitBox}>
+        <button className={formstyles.SubmitBtn} type="submit">
           Sign in
         </button>
       </div>
-      <div className="flex items-center justify-between mt-4">
-        <div className="flex-1"></div>
-        <Link
-          className="inline-block align-baseline text-sm text-primary/50"
-          to="/account/recover"
-        >
-          Forgot password
-        </Link>
+      <div className={formstyles.AddInfo}>
+        <p>
+          <Link to="/account/recover">Forgot password</Link>
+        </p>
       </div>
     </>
   );

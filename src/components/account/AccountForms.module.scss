@@ -27,6 +27,23 @@
     line-height: 1rem;
   }
 }
+.ReadOnlyField {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & input {
+    display: none;
+  }
+  & button {
+    display: inline-block;
+    vertical-align: baseline;
+    text-decoration: underline;
+    color: $white;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
 .Input {
   background-color: transparent;
   color: $white90;
